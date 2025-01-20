@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Техника Великой Отечественной Войны</title>
+    <style>
+        @font-face {
+            font-family: "USSR STENCIL";
+            src: url("C:\\Users\\Li\\Desktop\\fonts\\USSR STENCIL.otf") format('truetype');
+        }
+        body {
+            font-family: 'USSR STENCIL', sans-serif;
+            background-color: #E7E5DE;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            text-align: center;
+            padding: 40px;
+            font-size: 2.5em;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 20px;
+        }
+        .item {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px #363A31;
+            margin: 20px;
+            width: 250px;
+            padding: 15px;
+            text-align: center;
+        }
+        .item img {
+            width: 100%;
+            border-radius: 8px;
+        }
+        .button-container {
+            margin-top: 10px;
+        }
+        .button-container button {
+            padding: 10px 20px;
+            background-color: #363A31;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        .button-container button:hover {
+            background-color: #555;
+        }
+        .meaning-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #363A31;
+            justify-content: center;
+            align-items: center;
+        }
+        .meaning-modal-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            width: 300px;
+            text-align: center;
+        }
+        .close {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #363A31;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<header>Техника Великой Отечественной Войны</header>
+
+<div class="container">
+    <div class="item">
+        <img src="C:\\Users\\Li\\Downloads\\546479b5c0f6ebc49d8511687466f954 1.png" alt="Танк Т-34">
+        <h3>Танк Т-34</h3>
+        <p>Классификация: Средний танк</p>
+        <p>Калибр 76-мм </p>
+        <p>Экипаж: 4 человека</p>
+        <p>Мощность 500 л.с.</p> 
+        <p>Макс. скорость: 54 км/ч</p>
+        <p>Двигатель дизельный</p>
+        <div class="button-container">
+            <button data-value="drkfl d djqye ">Значение</button>
+        </div>
+    </div>
+    <div class="item">
+        <img src="C:\\Users\\Li\\Downloads\\TankBiathlon2016opening-10-Photoroom 1.png" alt="Танк ИС-2">
+        <h3>Танк ИС-2</h3>
+        <p>Классификация: Тяжелый танк</p>
+        <p>Калибр 122-мм </p>
+        <p>Экипаж: 4 человека</p>
+        <p>Макс. скорость: 37 км/ч</p>
+        <p>Мощность 520 л.с.</p>
+        <p>Двигатель дизельный</p>
+        <div class="button-container">
+            <button data-value="Танк ИС-2: Тяжелый танк, экипаж 4 человека, макс. скорость 37 км/ч">Значение</button>
+        </div>
+    </div>
+    <div class="item">
+        <img src="c:\Users\Li\Downloads\978c364e-2087-54dd-aff9-2d3035fa3ff9-Photoroom 1.png" alt="Самолет Ил-2">
+        <h3>Самолет Ил-2</h3>
+        <p>Классификация: Штурмовик</p>
+        <p>Экипаж: 2 человека</p>
+        <p>Макс. скорость: 414 км/ч</p>
+        <p>Мощность 1720 л.с.</p> 
+        <p>Размах крыла — 14,60 м</p>
+        <p>Двигатель дизельный</p>
+        <div class="button-container">
+            <button data-value="qqqqq">Значение</button>
+        </div>
+        </div>
+        <div class="item">
+            <img src="c:\Users\Li\Downloads\95673f6605d83f1ea76f24d1644cc11a--planes-russia 1.png" alt="Самолет Як-9">
+            <h3>Самолет Як-9</h3>
+            <p>Классификация: Истребитель</p>
+            <p>Экипаж: 1 человек</p>
+            <p>Макс. скорость: 599 км/ч</p>
+            <p>Мощность 1180 л.с.</p> 
+            <p>Размах крыла — 9,74 м</p>
+            <p>Двигатель дизельный</p>
+            <div class="button-container">
+                <button data-value="wwwww">Значение</button>
+            </div>
+
+
+<div class="meaning-modal" id="meaning-modal">
+    <div class="meaning-modal-content">
+        <h3>Значение техники</h3>
+        <p id="modal-text">Текст значения</p>
+        <button class="close" onclick="closeMeaningModal()">Закрыть</button>
+    </div>
+</div>
+
+<script>
+    // Получаем все кнопки
+    const buttons = document.querySelectorAll('.button-container button');
+    const modal = document.getElementById('meaning-modal');
+    const modalText = document.getElementById('modal-text');
+
+    // Функция для открытия модального окна
+    function openMeaningModal(value) {
+        modalText.textContent = value;
+        modal.style.display = 'flex';
+    }
+
+    // Функция для закрытия модального окна
+    function closeMeaningModal() {
+        modal.style.display = 'none';
+    }
+
+    // Привязываем обработчик к каждой кнопке
+    buttons.forEach(button => {
+        button.addEventListener('click', () => {
+            const value = button.getAttribute('data-value');
+            openMeaningModal(value);
+        });
+    });
+</script>
+
+</body>
+</html>
